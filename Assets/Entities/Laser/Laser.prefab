@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21293976}
   - 50: {fileID: 5002894}
   - 61: {fileID: 6150414}
+  - 114: {fileID: 11430848}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -56,6 +57,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .0900000036, y: .589999974}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11430848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60812cb5358f69f4f99b394696ec4a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
 --- !u!212 &21293976
 SpriteRenderer:
   m_ObjectHideFlags: 1
