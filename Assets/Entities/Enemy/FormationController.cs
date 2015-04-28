@@ -8,6 +8,7 @@ public class FormationController : MonoBehaviour {
 	public float height = 5f;
 	public float speed = 5f;
 	public float padding = 1f;
+	public float spawnDelaySeconds = 1f;
 
 	private int direction = 1;
 	private float formationRightEdge;
@@ -24,11 +25,7 @@ public class FormationController : MonoBehaviour {
 		boundaryLeftEdge = camera.ViewportToWorldPoint(new Vector3(0,0,distance)).x + padding;
 		boundaryRightEdge = camera.ViewportToWorldPoint(new Vector3(1,0,distance)).x - padding;		
 			
-		foreach(Transform child in transform) {
-			// Perhaps child.transform.position
-			GameObject enemy = Instantiate(enemyPrefab, child.position, Quaternion.identity) as GameObject;
-			enemy.transform.parent = child;
-		}
+		SpawnEnemies ();
 	}
 	
 	void OnDrawGizmos() {
@@ -55,5 +52,55 @@ public class FormationController : MonoBehaviour {
 			direction = 1;
 		}
 		transform.position += new Vector3(direction * speed * Time.deltaTime,0,0);
+		
+		if( AllMembersAreDead() ){
+			Debug.Log ("All enemies are dead");
+			SpawnUntilFull ();
+		}
+	}
+
+	void SpawnEnemies () {
+		foreach (Transform child in transform) {
+			// Perhaps child.transform.position
+			GameObject enemy = Instantiate (enemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
+			enemy.transform.parent = child;
+		}
+	}
+	
+	void SpawnUntilFull () {
+		Transform freePosition = NextFreePosition();
+		GameObject enemy = Instantiate (enemyPrefab, freePosition.position, Quaternion.identity) as GameObject;
+		enemy.transform.parent = freePosition;
+		
+		if( FreePositionExists() ) {
+			Invoke("SpawnUntilFull", spawnDelaySeconds);
+		}
+	}
+	
+	bool FreePositionExists () {
+		foreach(Transform position in transform) {
+			if(position.childCount <= 0) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	Transform NextFreePosition () {
+		foreach(Transform position in transform) {
+			if(position.childCount <= 0) {
+				return position;
+			}
+		}
+		return null;
+	}
+	
+	bool AllMembersAreDead() {
+		foreach(Transform position in transform) {
+			if(position.childCount > 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
