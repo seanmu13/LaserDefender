@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	public float padding = 1f;
 	public float projectileSpeed = 10f;
 	public float projectileRepeatRate = 0.2f;
+	public float health = 250;
 
 	private float xmin;
 	private float xmax;
@@ -22,7 +23,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Fire () {
-		GameObject beam = Instantiate (laser, transform.position, Quaternion.identity) as GameObject;
+		Vector3 offset = new Vector3(0, 1, 0);
+		GameObject beam = Instantiate (laser, transform.position + offset, Quaternion.identity) as GameObject;
 		beam.rigidbody2D.velocity = new Vector3 (0, projectileSpeed, 0);
 	}
 	
@@ -48,5 +50,22 @@ public class PlayerController : MonoBehaviour {
 		// Restrict the player to the gamespace
 		float newX = Mathf.Clamp(transform.position.x, xmin, xmax);		
 		transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+	}
+	
+
+	
+	void OnTriggerEnter2D(Collider2D collider) {
+		
+		Projectile missile = collider.gameObject.GetComponent<Projectile>();
+		
+		if(missile) {
+			Debug.Log ("Player hit by missile");
+			health -= missile.GetDamage();
+			missile.Hit();
+			
+			if (health <= 0 ) {
+				Destroy(gameObject);
+			}
+		}
 	}
 }

@@ -10,6 +10,8 @@ GameObject:
   - 4: {fileID: 409966}
   - 212: {fileID: 21209966}
   - 114: {fileID: 11409966}
+  - 60: {fileID: 6077928}
+  - 50: {fileID: 5016748}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -29,6 +31,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5016748
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109966}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 1
+  m_FixedAngle: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!60 &6077928
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109966}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Poly:
+    m_Paths:
+    - - {x: .488825828, y: .0712537766}
+      - {x: .364075392, y: -.0163269043}
+      - {x: .126535773, y: .129030704}
+      - {x: .0860537812, y: .381118298}
+      - {x: -.0835860297, y: .375}
+      - {x: -.117467746, y: .125}
+      - {x: -.366361678, y: -.0117893219}
+      - {x: -.449112892, y: .0720562935}
+      - {x: -.49347046, y: .0486774445}
+      - {x: -.461722076, y: -.246611595}
+      - {x: -.402857214, y: -.217939377}
+      - {x: -.144999996, y: -.294999987}
+      - {x: -.0949999988, y: -.375}
+      - {x: .0850348175, y: -.375}
+      - {x: .133027822, y: -.284222603}
+      - {x: .244249508, y: -.261962891}
+      - {x: .410642534, y: -.22064209}
+      - {x: .467355877, y: -.251928806}
 --- !u!114 &11409966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -45,6 +91,7 @@ MonoBehaviour:
   padding: 1
   projectileSpeed: 10
   projectileRepeatRate: .200000003
+  health: 250
 --- !u!212 &21209966
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -13,7 +13,7 @@ GameObject:
   - 61: {fileID: 6150414}
   - 114: {fileID: 11430848}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: LaserRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
