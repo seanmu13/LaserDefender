@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5019814}
   - 61: {fileID: 6116664}
   - 114: {fileID: 11420698}
+  - 95: {fileID: 9537798}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -57,6 +58,21 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: 1.92999995, y: 1}
   m_Center: {x: 0, y: 0}
+--- !u!95 &9537798
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106794}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 948f9c48a7e1f8042a05d806293b9363, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11420698
 MonoBehaviour:
   m_ObjectHideFlags: 1

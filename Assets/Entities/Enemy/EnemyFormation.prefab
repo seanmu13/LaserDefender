@@ -36,10 +36,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 188942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0787fccfd26e447bab2158e51f0293, type: 3}
+  m_Script: {fileID: 11500000, guid: 6968a643aad2c6343ac0b3098e371be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 106794, guid: 5736043194b4c50449eec21acf0851d1, type: 2}
+  width: 10
+  height: 5
+  speed: 5
+  padding: 1
+  spawnDelaySeconds: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

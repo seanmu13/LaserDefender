@@ -25,7 +25,7 @@ public class FormationController : MonoBehaviour {
 		boundaryLeftEdge = camera.ViewportToWorldPoint(new Vector3(0,0,distance)).x + padding;
 		boundaryRightEdge = camera.ViewportToWorldPoint(new Vector3(1,0,distance)).x - padding;		
 			
-		SpawnEnemies ();
+		SpawnUntilFull ();
 	}
 	
 	void OnDrawGizmos() {
@@ -58,7 +58,8 @@ public class FormationController : MonoBehaviour {
 			SpawnUntilFull ();
 		}
 	}
-
+	
+	/*
 	void SpawnEnemies () {
 		foreach (Transform child in transform) {
 			// Perhaps child.transform.position
@@ -66,6 +67,7 @@ public class FormationController : MonoBehaviour {
 			enemy.transform.parent = child;
 		}
 	}
+	*/
 	
 	void SpawnUntilFull () {
 		Transform freePosition = NextFreePosition();
